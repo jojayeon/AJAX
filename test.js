@@ -16,26 +16,3 @@ const example = `http://apis.data.go.kr/6300000/eventDataService/eventDataListJs
 const example2 = `http://apis.data.go.kr/6300000/eventDataService/eventDataListJson?serviceKey=dpEPUK36yqhSZNgzBL5MGZgpiVG2Q12SzEbTGv0kFXlqDuOKTFrOvaih2%2BBHmcBEMp%2Fhqy5qSaLYvVAG%2Fw75pw%3D%3D&numOfRows=10&pageNo=1`
 
 console.log(example);
-
-
-    const getAJAX = () => {
-      const example = `http://apis.data.go.kr/6300000/eventDataService/eventDataListJson?serviceKey=dpEPUK36yqhSZNgzBL5MGZgpiVG2Q12SzEbTGv0kFXlqDuOKTFrOvaih2%2BBHmcBEMp%2Fhqy5qSaLYvVAG%2Fw75pw%3D%3D&numOfRows=10&pageNo=1`
-      const xhr = newXMLHTTpRequest();
-      console.dir("데이터 받기전"+xhr);
-      xhr.open("GET",example,true);
-      xhr.addEventListener("load", () => {
-        if (xhr.status === 200) {
-          console.log("데이터 받은 후 조회");
-          console.dir(xhr);
-          
-          const result = JSON.parse(xhr.responseTEXT);
-          const data = result.results;
-          
-          console.log(data);
-          console.dir(data);
-          
-        }
-      });
-      xhr.send();
-    };
-    getAJAX()
