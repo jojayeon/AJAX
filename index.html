@@ -6,6 +6,31 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <div id="root"></div>
+  <script>
+    const getAJAX = () => {
+      const keyname = `dpEPUK36yqhSZNgzBL5MGZgpiVG2Q12SzEbTGv0kFXlqDuOKTFrOvaih2%2BBHmcBEMp%2Fhqy5qSaLYvVAG%2Fw75pw%3D%3D`
+
+      const example = `http://apis.data.go.kr/6300000/eventDataService/eventDataListJson?serviceKey=${keyname}&numOfRows=10&pageNo=1`
+
+      const xhr = new XMLHttpRequest();
+      console.dir("데이터 받기전"+xhr);
+      xhr.open("GET",example,true);
+      xhr.addEventListener("load", () => {
+        if (xhr.status === 200) {
+          console.log("데이터 받은 후 조회");
+          console.dir(xhr);
+          
+          const result = JSON.parse(xhr.responseText);
+          console.log(result);
+          const data = result.msgBody[0].title;
+          
+          console.log(data);          
+        }
+      });
+      xhr.send();
+    };
+    getAJAX();
+  </script>
 </body>
 </html>
